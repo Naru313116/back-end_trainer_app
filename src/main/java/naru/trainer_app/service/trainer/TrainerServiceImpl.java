@@ -1,4 +1,4 @@
-package naru.trainer_app.service;
+package naru.trainer_app.service.trainer;
 
 import naru.trainer_app.model.Trainer;
 import naru.trainer_app.repository.TrainerRepository;
