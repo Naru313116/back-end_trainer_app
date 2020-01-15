@@ -5,20 +5,21 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
-@Getter @Setter
+@Getter
+@Setter
 @NoArgsConstructor
 @Entity
+@Table
 public class Trainer {
 
     public Trainer(String firstName, String lastName, String specialization) {
-        this.firstName=firstName;
-        this.lastName=lastName;
-        this.specialization=specialization;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.specialization = specialization;
     }
 
     @Id
@@ -28,6 +29,23 @@ public class Trainer {
     private String lastName;
     private String specialization;
 
+
+    @OneToMany(mappedBy = "trainer", cascade = {
+            CascadeType.DETACH,
+            CascadeType.MERGE,
+            CascadeType.PERSIST,
+            CascadeType.REFRESH})
+    private List<TrainingPlan> trainingPlans;
+
+    //methods
+    public void add(TrainingPlan trainingPlan){
+        if(trainingPlans == null){
+            trainingPlans = new ArrayList<>();
+        }
+        trainingPlans.add(trainingPlan);
+        trainingPlan.setTrainer(this);
+    }
+    //Overriders
     @Override
     public String toString() {
         return "Trainer{" +
@@ -37,4 +55,6 @@ public class Trainer {
                 ", specialization='" + specialization + '\'' +
                 '}';
     }
+
+
 }
