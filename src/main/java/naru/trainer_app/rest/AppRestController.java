@@ -30,25 +30,7 @@ public class AppRestController {
         this.trainingPlanService = trainingPlanService;
     }
 
-    //test
-    @GetMapping("/trainers")
-    List<Trainer> getTrainerList() {
-        return trainerService.findAll();
-    }
-    //test
-    @GetMapping("/clients")
-    List<Client> getClientList(){
-        return clientService.findAll();
-    }
 
-    //test
-    @DeleteMapping("/trainings")
-   String deleteTraining(){
-        Training tmp = trainingService.getById(1);
-        trainingService.delete(tmp.getId());
-    return "deleted " + tmp;
-    }
-    //test
     @PostMapping("/create")
     String creator(){
 
@@ -76,8 +58,5 @@ public class AppRestController {
       return "saved!" + tmpTrainingPlan;
 
     }
-    @GetMapping("/training_plans")
-    List<TrainingPlan> getTrainingPlanList() {
-        return trainingPlanService.findAll();
-    }
+
 }
