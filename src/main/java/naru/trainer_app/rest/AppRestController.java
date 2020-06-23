@@ -56,7 +56,7 @@ public class AppRestController {
         Training tmpTraining = new Training("Meditation","Meditate for 2 min's");
         Training tmpTraining2 =  new Training("Pumps","do 20 pumps x3 with 2 min's break");
         TrainingPlan tmpTrainingPlan = new TrainingPlan("Maestro Arms");
-        Client tmpClient = new Client("Damian", "Masik", "zxc@wp.com");
+        Client tmpClient = new Client("Damian", "xcz", "zxc@wp.com");
 
         //tmpTrainingPlan.add(tmpTraining);
         //tmpTrainingPlan.add(tmpTraining2);

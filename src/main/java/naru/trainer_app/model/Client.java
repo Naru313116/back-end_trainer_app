@@ -10,6 +10,7 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @Entity
+
 public class Client {
 
     public Client(String firstName, String lastName, String email) {
