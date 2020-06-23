@@ -5,7 +5,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -46,13 +45,17 @@ public class TrainingPlan {
             CascadeType.REFRESH})
     private List<Training> trainings;
 
-    public void add(Training training) {
-        if (trainings == null) {
-            trainings = new ArrayList<>();
-        }
-        trainings.add(training);
-        training.setTrainingPlan(this);
+
+
+//overriders
+    @Override
+    public String toString() {
+        return "TrainingPlan{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", trainer=" + trainer +
+                ", client=" + client +
+                ", trainings=" + trainings +
+                '}';
     }
-
-
 }

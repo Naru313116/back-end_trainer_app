@@ -1,3 +1,4 @@
+/*
 package naru.trainer_app.rest;
 
 import naru.trainer_app.model.Client;
@@ -55,3 +56,4 @@ public class ClientRestController {
     }
 
 }
+*/

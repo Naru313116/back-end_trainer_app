@@ -1,12 +1,10 @@
 package naru.trainer_app.model;
 
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -38,13 +36,7 @@ public class Trainer {
     private List<TrainingPlan> trainingPlans;
 
     //methods
-    public void add(TrainingPlan trainingPlan){
-        if(trainingPlans == null){
-            trainingPlans = new ArrayList<>();
-        }
-        trainingPlans.add(trainingPlan);
-        trainingPlan.setTrainer(this);
-    }
+
     //Overriders
     @Override
     public String toString() {

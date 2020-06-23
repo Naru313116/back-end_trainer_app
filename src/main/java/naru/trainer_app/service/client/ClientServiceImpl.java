@@ -21,6 +21,7 @@ public class ClientServiceImpl implements ClientService {
     @Override
     public List<Client> findAll() {
         return clientRepository.findAll();
+        //.stream().map(client -> clientmapper.clienttoclientdto(client)).collect(Collectors.toList()
     }
 
     @Override

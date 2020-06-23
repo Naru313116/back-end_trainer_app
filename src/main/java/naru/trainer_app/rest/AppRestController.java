@@ -30,7 +30,25 @@ public class AppRestController {
         this.trainingPlanService = trainingPlanService;
     }
 
+    //test
+    @GetMapping("/trainers")
+    List<Trainer> getTrainerList() {
+        return trainerService.findAll();
+    }
+    //test
+    @GetMapping("/clients")
+    List<Client> getClientList(){
+        return clientService.findAll();
+    }
 
+    //test
+    @DeleteMapping("/trainings")
+   String deleteTraining(){
+        Training tmp = trainingService.getById(1);
+        trainingService.delete(tmp.getId());
+    return "deleted " + tmp;
+    }
+    //test
     @PostMapping("/create")
     String creator(){
 
@@ -38,13 +56,13 @@ public class AppRestController {
         Training tmpTraining = new Training("Meditation","Meditate for 2 min's");
         Training tmpTraining2 =  new Training("Pumps","do 20 pumps x3 with 2 min's break");
         TrainingPlan tmpTrainingPlan = new TrainingPlan("Maestro Arms");
-        Client tmpClient = new Client("Damian", "Tomasik", "żołdak@robak.com");
+        Client tmpClient = new Client("Damian", "Masik", "żołdak@robak.com");
 
-        tmpTrainingPlan.add(tmpTraining);
-        tmpTrainingPlan.add(tmpTraining2);
+        //tmpTrainingPlan.add(tmpTraining);
+        //tmpTrainingPlan.add(tmpTraining2);
         tmpTrainingPlan.setClient(tmpClient);
         tmpClient.setTrainingPlan(tmpTrainingPlan);
-        tmpTrainer.add(tmpTrainingPlan);
+        //tmpTrainer.add(tmpTrainingPlan);
 
         trainingService.save(tmpTraining);
         trainingService.save(tmpTraining2);
@@ -58,5 +76,8 @@ public class AppRestController {
       return "saved!" + tmpTrainingPlan;
 
     }
-
+    @GetMapping("/training_plans")
+    List<TrainingPlan> getTrainingPlanList() {
+        return trainingPlanService.findAll();
+    }
 }

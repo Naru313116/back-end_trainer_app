@@ -11,6 +11,7 @@ import javax.persistence.*;
 @Entity
 public class Training {
 
+
     public Training( String title,String description) {
         this.title = title;
         this.description = description;
@@ -39,4 +40,7 @@ public class Training {
                 ", description='" + description + '\'' +
                 '}';
     }
+
+
+
 }
